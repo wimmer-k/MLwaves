@@ -1,0 +1,21 @@
+# Byte-compiled / cache
+__pycache__/
+*.pyc
+
+# backup files
+*~
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Data
+data/
+!data/README.md  # if you want a placeholder to keep the folder
+
+# Virtual environment
+venv/
+.env/
+
+# Logs and outputs
+outputs/
+*.log
