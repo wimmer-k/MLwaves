@@ -22,6 +22,7 @@ outputs/
 
 # Results
 results/*
+results*x*
 
 # Output and plots
 output/*

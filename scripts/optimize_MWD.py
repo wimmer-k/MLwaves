@@ -122,10 +122,9 @@ def main(config_path, show_plots=False, stop_after_tau=False, stop_after_window=
     np.random.seed(0)
     sample_indices = np.random.choice(len(waveforms), size=min(500, len(waveforms)), replace=False)
     orig_energy = df["energy"].values[sample_indices]
-    init_energy = []
+    init_energy = df["MWD"].values[sample_indices]
     best_energy_stage1 = []
     for i in sample_indices:
-        _, e_init, _ = MWD(waveforms[i], cfg["initial_params"])
         _, energy, _ = MWD(waveforms[i], params_stage1)
         if not np.isnan(e_init):
             init_energy.append(e_init)
