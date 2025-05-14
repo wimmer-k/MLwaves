@@ -19,3 +19,15 @@ venv/
 # Logs and outputs
 outputs/
 *.log
+
+# Results
+results/*
+
+# Output and plots
+output/*
+
+# Configs
+config/*
+
+# Studies
+optuna_studies/*
