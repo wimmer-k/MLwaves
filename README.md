@@ -218,6 +218,61 @@ optimization_ranges:
 
 ---
 
+## Matched Filter Energy Extraction
+
+Matched filter energy extraction using a clean reference pulse or one built from waveform data.
+
+### Usage
+
+#### Basic command:
+
+```bash
+python3 scripts/matched_filter.py --config config/matched_test.yaml
+```
+
+with example config file:
+
+```yaml
+input_file: data/run0153/layer4_x2_y0.csv
+output_file: output/matched_energies_layer4_x2_y0.csv
+
+# Optional: use external template
+template_file: output/template_generated.npy
+
+MWD_params: results/best_params_layer4_x2_y0.yaml
+```
+
+#### Optional flags:
+- `--make-template` generate and save a matched filter template from waveform data
+- `--show-plots` show diagnostic plots comparing energy estimators
+- `--compare` run MWD energy extraction using parameters from a YAML file, compare performance
+
+To generate a template from data, primary beam or pulser, use the `--make-template` flag with a configuration file specifying the data, output file as well as the parameters for the matching.
+
+```yaml
+input_file: data/run0003/layer4_x2_y0.csv
+output_file: output/template_layer4_x2_y0.npy
+
+# If building a template:
+template_count: 200
+baseline_window: [20, 80]
+align_range: [80, 150]
+align_to: 100
+normalization_window: [10, 30]
+```
+
+#### Plots:
+
+When `--show-plots` is enabled, a four(or six)-panel summary is generated:
+
+- Individual energy spectra
+- Overlay (scaled) of two or more methods
+- 2D heatmaps comparing matched vs other energies
+
+Scaling is applied using robust percentiles (1st–99th), with outliers excluded from scaling but included in visual inspection.
+
+---
+
 ## Dependencies
 
 - numpy
