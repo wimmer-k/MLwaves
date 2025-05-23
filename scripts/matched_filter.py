@@ -1,5 +1,3 @@
-# matched_filter_energy.py
-
 import numpy as np
 import pandas as pd
 from scipy.signal import correlate

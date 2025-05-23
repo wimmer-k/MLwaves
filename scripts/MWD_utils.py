@@ -1,6 +1,7 @@
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
 def exp_decay(t, A, tau):
     return A * np.exp(-t / tau)
@@ -63,6 +64,12 @@ def batch_estimate_taus(waveforms, sample_size=100, sampling=10.0, plot=True, la
             plt.close()
 
     return taus
+
+def load_waveforms(csv_path):
+    df = pd.read_csv(csv_path)
+    waveforms = df[[c for c in df.columns if c.startswith("t")]].values
+    energies = df["energy"].values if "energy" in df.columns else None
+    return waveforms, energies
 
 def MWD(trace, params, baseline_corr=True):
     """

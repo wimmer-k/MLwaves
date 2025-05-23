@@ -66,18 +66,18 @@ python3 scripts/optimize_mwd.py --config config/layer1_x3_y1.yaml --reuse_study
 ```
 
 
-#### Batch Execution with  `batch_run_MWD.py`
+#### Batch Execution with  `batch_opt_MWD.py`
 
 Executes `optimize_mwd.py` over a grid of detectors (typically all x/y for a given layer).
 
 ```bash
-python3 scripts/batch_run_MWD.py --config config/coarse_grid.yaml
+python3 scripts/batch_opt_MWD.py --config config/coarse_grid.yaml
 ```
 
 or using Python multiprocessing to speed up execution on multicore machines.
 
 ```bash
-python3 scripts/batch_run_MWD_parallel.py --config config/coarse_grid.yaml
+python3 scripts/batch_opt_MWD_parallel.py --config config/coarse_grid.yaml
 ```
 
 
